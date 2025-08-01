@@ -3,18 +3,28 @@
     "id": 1,
     "name": "John Doe",
     "email": "john@example.com",
-    "position": "Software Developer"
+    "position": "Software Developer",
+    "skills": ["Python", "JavaScript", "Git"]
   },
   {
     "id": 2,
     "name": "Jane Smith",
     "email": "jane@example.com",
-    "position": "UX Designer"
+    "position": "UX Designer",
+    "skills": ["UI/UX", "Figma", "Adobe XD"]
   },
   {
     "id": 3,
     "name": "Mike Johnson",
     "email": "mike@example.com",
-    "position": "Project Manager"
+    "position": "Project Manager",
+    "skills": ["Agile", "Scrum", "Leadership"]
+  },
+  {
+    "id": 4,
+    "name": "Sarah Williams",
+    "email": "sarah@example.com",
+    "position": "Data Scientist",
+    "skills": ["Python", "R", "Machine Learning"]
   }
 ]

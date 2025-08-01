@@ -2,6 +2,8 @@ from flask import Flask, jsonify, request, render_template, redirect, url_for, f
 from pymongo import MongoClient
 import json
 import os
+from datetime import datetime
+
 
 app = Flask(__name__)
 app.secret_key = 'assignment_secret_key'
@@ -56,6 +58,35 @@ def success():
 @app.route('/todo')
 def todo():
     return render_template('todo.html')
+
+@app.route('/submittodoitem', methods=['POST'])
+def submit_todo_item():
+    try:
+        # Get form data
+        item_name = request.form.get('itemName')
+        item_description = request.form.get('itemDescription')
+        
+        # Connect to MongoDB and insert data
+        client = MongoClient(MONGODB_URI)
+        db = client['myapp_db']
+        todo_collection = db['todo_items']
+        
+        # Create document to insert
+        todo_item = {
+            'itemName': item_name,
+            'itemDescription': item_description,
+            'createdAt': datetime.now()
+        }
+        
+        # Insert into MongoDB
+        todo_collection.insert_one(todo_item)
+        
+        # Redirect to success page
+        return redirect(url_for('success'))
+    except Exception as e:
+        # Display error on the same page without redirection
+        error_message = f"Error: {str(e)}"
+        return render_template('todo.html', error=error_message)
 
 if __name__ == '__main__':
     app.run(debug=True)

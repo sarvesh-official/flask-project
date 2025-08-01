@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "name": "John Doe",
+    "email": "john@example.com",
+    "position": "Software Developer"
+  },
+  {
+    "id": 2,
+    "name": "Jane Smith",
+    "email": "jane@example.com",
+    "position": "UX Designer"
+  },
+  {
+    "id": 3,
+    "name": "Mike Johnson",
+    "email": "mike@example.com",
+    "position": "Project Manager"
+  }
+]
